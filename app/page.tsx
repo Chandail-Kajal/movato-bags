@@ -1,13 +1,53 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import { Featured } from "@/components/homepage/Featured";
+import { HeroCarousel } from "@/components/homepage/HeroCarousel";
+import { ShopYourLuggage } from "@/components/homepage/ShopYourLuggage";
+import { Testimonial } from "@/components/homepage/Testimonial";
+import { PropsWithChildren } from "react";
 
-
+const Section = ({ children }: PropsWithChildren) => {
+  return <div className="px-8 pb-8">{children}</div>;
+};
 
 export default function Home() {
+  const slides = [
+    {
+      image: "/assets/hero/hero-1.jpg",
+      title: "BUILT TO\nPERFORM",
+      description:
+        "Durable, high-impact hard-shell suitcases engineered for real-world travel.",
+      primaryBtn: "Shop Movato",
+      secondaryBtn: "Why Movato",
+    },
+    {
+      image: "/assets/hero/hero-1.jpg",
+      title: "TRAVEL SMART",
+      description: "Designed for modern explorers.",
+      primaryBtn: "Explore",
+      secondaryBtn: "Learn More",
+    },
+  ];
+
   return (
-    <div className=" h-full w-full">
-      <Header/>
-      <Footer/>
+    <div className="min-h-screen bg-white w-full flex flex-col">
+      <Header />
+      <div className="p-8 W-full">
+        <HeroCarousel slides={slides} />
+      </div>
+      <Section>
+        <Featured />
+      </Section>
+
+      <Section>
+        <ShopYourLuggage />
+      </Section>
+
+      <Section>
+        <Testimonial />
+      </Section>
+
+      {/* <Footer /> */}
     </div>
   );
 }

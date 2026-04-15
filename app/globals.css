@@ -1,15 +1,46 @@
 @import "tailwindcss";
+@font-face {
+  font-family: "sohne-extrafett";
+  src: url("/fonts/TestSohneBreit-Extrafett.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "sohne-dreivierfett";
+  src: url("/fonts/TestSohneBreit-Dreiviertelfett.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "sohne-halbfett";
+  src: url("/fonts/TestSohneBreit-Halbfett.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-sans: var(--font-rubik);
+  --font-sans-dirt: var(--font-rubik-dirt);
+  --font-sohne-extrafett: "sohne-extrafett", sans-serif;
+  --font-sohne-dreivierfett: "sohne-dreivierfett", sans-serif;
+  --font-sohne-halbfett: "sohne-halbfett", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-sans-dirt: var(--font-sans-dirt);
+  --font-sohne-extrafett: "sohne-extrafett";
+  --font-sohne-dreivierfett: "sohne-dreivierfett";
+  --font-sohne-halbfett: "sohne-halbfett";
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +53,5 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
