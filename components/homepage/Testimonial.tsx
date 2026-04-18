@@ -55,11 +55,11 @@ export function Testimonial() {
   return (
     <div className="bg-[#25282A] p-16 rounded-3xl px-20 flex items-center">
       <div className="flex w-1/2 flex-col gap-6">
-        <h4 className="font-sans-dirt uppercase text-7xl">
+        <h4 className="font-sans-dirt uppercase text-7xl text-white">
           Tested for <br /> everyday <br />
           travel use.
         </h4>
-        <p className="text-base font-sans font-normal">
+        <p className="text-base font-sans font-normal text-white">
           Movato suitcases are tested under controlled conditions <br /> to
           ensure consist performance across repeated trips and <br /> regular
           handling.

@@ -1,9 +1,13 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
+import FAQ from "@/components/homepage/FAQ";
 import { Featured } from "@/components/homepage/Featured";
+import HelpSection from "@/components/homepage/helpSection";
 import { HeroCarousel } from "@/components/homepage/HeroCarousel";
 import { ShopYourLuggage } from "@/components/homepage/ShopYourLuggage";
+import SupportSection from "@/components/homepage/supportSection";
 import { Testimonial } from "@/components/homepage/Testimonial";
+import TestimonialSection from "@/components/homepage/TestimonialSection";
 import { PropsWithChildren } from "react";
 
 const Section = ({ children }: PropsWithChildren) => {
@@ -46,8 +50,19 @@ export default function Home() {
       <Section>
         <Testimonial />
       </Section>
-
-      {/* <Footer /> */}
+      <Section>
+        <SupportSection/>
+      </Section>
+        <Section>
+          <TestimonialSection/>
+        </Section>
+        <Section>
+          <FAQ/>
+        </Section>
+        <Section>
+          <HelpSection/>
+        </Section>
+       <Footer /> 
     </div>
   );
 }

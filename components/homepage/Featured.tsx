@@ -15,9 +15,9 @@ const ImageCard = ({
         <Image
           src={img}
           alt={imgTitle}
-          className="w-full h-auto object-cover"
-          height={140}
-          width={80}
+          className="w-full h-full object-cover"
+          height={120}
+          width={60}
         />
         <div
           className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
@@ -35,7 +35,7 @@ const ImageCard = ({
           {imgTitle}
         </h3>
       </div>
-      <p className="font-sans text-sm text-neutral-600 dark:text-neutral-400">
+      <p className="font-sans text-sm text-white">
         {caption}
       </p>
     </div>
@@ -50,22 +50,22 @@ export function Featured() {
         "Built to handle constant handling across check-in counters and baggage belts.",
     },
     {
-      img: "/assets/images/feature-1.jpg",
+      img: "/assets/images/feature-2.jpg",
       imgTitle: "All-Terrain Mobility",
       caption:
-        "Built to handle constant handling across check-in counters and baggage belts.",
+        "Designed to roll confidently across uneven pavements and gravel roads.",
     },
     {
-      img: "/assets/images/feature-1.jpg",
-      imgTitle: "Airport Handling",
+      img: "/assets/images/feature-4.png",
+      imgTitle: "Repeated Lifting",
       caption:
-        "Built to handle constant handling across check-in counters and baggage belts.",
+        "Engineered for repeated lifting — even when fully packed.",
     },
     {
-      img: "/assets/images/feature-1.jpg",
-      imgTitle: "Airport Handling",
+      img: "/assets/images/feature-3.jpg",
+      imgTitle: "Long Journeys",
       caption:
-        "Built to handle constant handling across check-in counters and baggage belts.",
+        "Designed for consistent performance across years of heavy-duty travel.",
     },
   ];
   return (
@@ -74,13 +74,13 @@ export function Featured() {
         <h4 className="text-3xl text-[#DB6B30] font-thin font-sohne-dreivierfett uppercase">
           Engineered for <br /> real-world travel.
         </h4>
-        <p className="text-base font-sans">
+        <p className="text-base font-sans text-white">
           Every Movato component is stress-tested to perform <br /> in
           high-friction environments —from cobblestone <br /> streets to airport
           cargo holds.
         </p>
       </div>
-      <div className="flex-1 flex gap-3 items-center">
+      <div className="grid grid-cols-4 gap-3 text-white">
         {features.map((f, index) => (
           <ImageCard key={`feature-${index}`} {...f} />
         ))}
@@ -88,3 +88,5 @@ export function Featured() {
     </div>
   );
 }
+
+

@@ -1,50 +1,243 @@
 import Image from "next/image";
+import React from "react";
+
+type LinkItem =
+    | string
+    | {
+        title: string;
+        caption: string;
+    };
+
+type Section = {
+    title: string;
+    links: LinkItem[];
+    col: number;
+};
+
+function FooterColumn({ title, links }: Section) {
+    return (
+        <div className="flex flex-col gap-4">
+            <h3 className="text-lime-400 font-semibold font-sohne-dreivierfett text-xl">{title}</h3>
+
+            <div className="flex flex-col gap-2">
+                {links.map((item, index) => {
+                    if (typeof item === "string") {
+                        return (
+                            <p
+                                key={index}
+                                className="text-gray-300 text-sm hover:text-white cursor-pointer"
+                            >
+                                {item}
+                            </p>
+                        );
+                    }
+
+                    return (
+                        <div key={index}>
+                            <p className="text-gray-300 text-sm hover:text-white cursor-pointer font-sans">
+                                {item.title}
+                            </p>
+                            <span className="text-xs font-sans text-gray-300">
+                                {item.caption}
+                            </span>
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+}
 
 export default function Footer() {
+    const col1: Section[] = [
+        {
+            col: 1,
+            title: "SHOP BY TRIP",
+            links: [
+                "Weekend Getaways",
+                "Long Duration Trips",
+                "Work/Business Trips",
+                "Frequent Flyers",
+                "Wedding Gifts",
+            ],
+        },
+        {
+            col: 1,
+            title: "SHOP BY SIZE",
+            links: ["Cabin", "Medium", "Large", "Luggage Sets"],
+        },
+        {
+            col: 1,
+            title: "SHOP BY COLLECTION",
+            links: [
+                {
+                    title: "Phoenix",
+                    caption: "Lightweight for everyday travel.",
+                },
+                {
+                    title: "Arizona",
+                    caption: "Expandable, designed to carry more.",
+                },
+                {
+                    title: "Madison",
+                    caption: "Scratch-resistant hard-shell luggage.",
+                },
+                {
+                    title: "Orlando",
+                    caption: "Front-opening for quicker access.",
+                },
+                {
+                    title: "Dallas",
+                    caption: "Wide-handle for max control and balance.",
+                },
+            ],
+        },
+    ];
+
+    const col2: Section[] = [
+        {
+            col: 2,
+            title: "WHY MOVATO",
+            links: [
+                "Built to Perform",
+                "Materials & Durability",
+                "Wheels, Locks & Zippers",
+                "Warranty & After-Sales Support",
+                "Performance Journal (Blog)",
+            ],
+        },
+        {
+            col: 2,
+            title: "ABOUT MOVATO",
+            links: [
+                "Built to Perform",
+                "Materials & Durability",
+                "Wheels, Locks & Zippers",
+                "Warranty & After-Sales Support",
+                "Performance Journal (Blog)",
+            ],
+        },
+        {
+            col: 2,
+            title: "BULK ORDERS",
+            links: [
+                "For gifting & corporate orders",
+                "WhatsApp us at +918904892616",
+                "bulk@movatobags.com",
+            ],
+        },
+    ];
+
+    const col3: Section[] = [
+        {
+            col: 3,
+            title: "SUPPORT & SERVICES",
+            links: [
+                "Track Your Order",
+                "Returns & Exchanges",
+                "Claim My Warranty",
+                "All Reviews",
+                "FAQs",
+                "Privacy Policy",
+                "Shipping Policy",
+                "Terms & Conditions",
+                "Contact Us",
+            ],
+        },
+    ];
+
     return (
-        <div className="w-480 h-[1119] bg-[#304B39] flex flex-col ">
-            <div className="w-[384px] h-232.5 gap-7.5 m-20 ">
-                <div className="w-[384px] h-[417.52px] gap-5 pb-20 ">
-                    <div className="w-[384px] h-[100.52px] ">
-                        <Image src="/assets/icons/Footer-Logo.svg" width={"380"} height={100} alt="test" />
-                    </div>
-                    <div className="w-[384px] h-44.25 text-white pt-8 gap-8 flex flex-col">
-                        <p className="font-rubik">
-                            Movato designs performance-driven luggage for real travel, from daily work trips to long journeys. Thoughtfully engineered. Rigorously tested.
+        <footer className="bg-[#304B39] text-white px-10 py-12">
+            <div className="grid grid-cols-4 gap-8">
+
+
+                <div className="flex flex-col gap-6">
+                    <div>
+                        <Image
+                            src="/assets/images/Frame-50.svg"
+                            width={290}
+                            height={60}
+                            alt="footer"
+                        />
+                        <p className="text-sm text-gray-300 mt-6">
+                            Movato designs performance-driven <br />
+                            luggage for real travel, from daily work trips <br />
+                            to long journeys. Thoughtfully engineered. Rigorously tested.
                             Built to move with you—wherever life takes you.
                         </p>
-                        <p className="font-rubik">
-                            #BuiltToPerform
+                        <h1 className="pt-8">#BuiltToPerform</h1>
+                    </div>
+
+
+                    <div className="flex gap-3">
+                        <div className="w-10 h-10 bg-[#2B2F33] rounded"></div>
+                        <div className="w-10 h-10 bg-[#2B2F33] rounded"></div>
+                        <div className="w-10 h-10 bg-[#2B2F33] rounded"></div>
+                        <div className="w-10 h-10 bg-[#2B2F33] rounded"></div>
+                    </div>
+
+
+                    <div className="font-sans">
+                        <h3 className="text-lime-400 font-semibold text-xl">
+                            CUSTOMER SUPPORT
+                        </h3>
+                        <p className="text-sm text-gray-300 mt-2">
+                            Call/WhatsApp: +91 99999 99999
+                        </p>
+                        <p className="text-sm text-gray-300 ">
+                            Email: support@movatobags.com
+                        </p>
+                        <p className="text-sm text-gray-300 ">
+                            Monday - Saturday / 10 AM - 7 PM
                         </p>
                     </div>
-                    <div className="w-95 h-20 pt-8">
-                        <Image src="/assets/icons/Otpimg.svg" width={380} height={100} alt="test" />
-                    </div>
-                </div>
-                <div className="w-81.25 h-31.25 gap-6 flex flex-col">
-                    <h1 className="text-[#B9D531]">CUSTOMER SUPPORT</h1>
-                    <span className="text-white flex ">Call/WhatsApp: +91 9999 999 999<br />
-                        email: support@movatobags.com
-                        Monday - Saturday / 10 AM - 7 PM
-                    </span>
-                </div>
-                <div className="w-[384px] h-[200.84px] gap-8 pt-8">
-                    <h1 className="text-[#B9D531]">STAY UPDATED</h1>
-                    <div className="w-[384px] h-[60.48px] bg-white border-1 border-gray-600 flex flex-col justify-end items-end  ">
-                        <div className="w-15 h-15 bg-[#304B39] flex flex-col justify-center items-center ">
-                            <Image src="/assets/icons/Arrow3.png" width={35} height={40} alt="footer" />
+
+
+                    <div className="font-sans"> 
+                        <h3 className="text-lime-400 font-semibold text-xl">
+                            STAY UPDATED
+                        </h3>
+                        <div className="flex mt-2 bg-white">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="px-3 py-2 text-black text-sm w-full"
+                            />
+                            <button className="bg-[#2F392D] px-4">→</button>
                         </div>
-
+                        <p className="mt-6 text-sm text-gray-300">
+                            Product launches, performance insights, and travel stories —
+                            straight from the Movato team. No spam. No noise.
+                        </p>
                     </div>
-                    <span className="w-95 h-13.5 font-rubik pt-20 ">
-                        Product launches, performance insights, and travel stories — straight from the Movato team.
-                        No spam. No noise. Just things worth knowing.
-                    </span>
                 </div>
 
+
+                <div className="col-span-3 grid grid-cols-3 gap-18 pl-26 font-sans">
+                    <div className="flex flex-col gap-4">
+                        {col1.map((section, index) => (
+                            <FooterColumn key={index} {...section} />
+                        ))}
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        {col2.map((section, index) => (
+                            <FooterColumn key={index} {...section} />
+                        ))}
+                    </div>
+
+                    <div className="flex flex-col gap-4">
+                        {col3.map((section, index) => (
+                            <FooterColumn key={index} {...section} />
+                        ))}
+                    </div>
+                </div>
             </div>
 
-            <div></div>
-        </div>
+
+            <div className="border-t border-gray-600 mt-10 pt-4 text-center text-sm text-gray-400">
+                © 2026 MOVATO. All rights reserved.
+            </div>
+        </footer>
     );
 }

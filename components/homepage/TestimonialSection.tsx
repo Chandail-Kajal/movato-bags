@@ -1,0 +1,135 @@
+"use client";
+import React, { useState } from "react";
+import {
+  FaStar,
+  FaStarHalfAlt,
+  FaRegStar,
+} from "react-icons/fa";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+type Testimonial = {
+  rating: number;
+  text: string;
+  name: string;
+  role: string;
+};
+
+
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex gap-1 mb-4">
+      {[1, 2, 3, 4, 5].map((star) => {
+        if (rating >= star) {
+          return <FaStar key={star} className="text-black" />;
+        } else if (rating >= star - 0.5) {
+          return (
+            <FaStarHalfAlt key={star} className="text-black" />
+          );
+        } else {
+          return (
+            <FaRegStar key={star} className="text-gray-400" />
+          );
+        }
+      })}
+    </div>
+  );
+}
+
+export default function TestimonialSection() {
+
+  const testimonials: Testimonial[] = [
+    {
+      rating: 4.5,
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+      name: "Rodger Struck",
+      role: "CEO of Company Name",
+    },
+    {
+      rating: 4,
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+      name: "Rodger Struck",
+      role: "CEO of Company Name",
+    },
+    {
+      rating: 3.5,
+      text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+      name: "Rodger Struck",
+      role: "CEO of Company Name",
+    },
+  ];
+
+
+  const [index, setIndex] = useState(0);
+
+  const next = () => {
+    setIndex((prev) => (prev + 1) % testimonials.length);
+  };
+
+  const prev = () => {
+    setIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
+
+  return (
+    <section className="bg-[#2f4635] text-white py-20 px-10">
+      
+
+      <h2 className="text-4xl text-center font-semibold mb-14">
+        Trusted By Travellers Who Expect More
+      </h2>
+
+      <div className="relative flex items-center justify-center">
+        
+
+        <button
+          onClick={prev}
+          className="absolute left-0 bg-[#d9d9d9] text-black w-12 h-12 rounded-full flex items-center justify-center"
+        >
+          <ChevronLeft />
+        </button>
+
+
+        <div className="grid grid-cols-3 gap-8 w-full max-w-6xl">
+          {testimonials.map((item, i) => (
+            <div
+              key={i}
+              className="bg-[#d9d9d9] text-black p-6 rounded-xl"
+            >
+
+              <StarRating rating={item.rating} />
+
+
+              <p className="text-sm leading-relaxed mb-6">
+                {item.text}
+              </p>
+
+
+              <h3 className="text-lg font-semibold">
+                {item.name}
+              </h3>
+              <p className="text-sm text-gray-700">
+                {item.role}
+              </p>
+            </div>
+          ))}
+        </div>
+
+
+        <button
+          onClick={next}
+          className="absolute right-0 bg-[#d9d9d9] text-black w-12 h-12 rounded-full flex items-center justify-center"
+        >
+          <ChevronRight />
+        </button>
+      </div>
+
+
+      <div className="flex justify-center mt-12">
+        <button className="border border-white px-8 py-3 rounded-md hover:bg-white hover:text-black transition">
+          Read All Reviews
+        </button>
+      </div>
+    </section>
+  );
+}
