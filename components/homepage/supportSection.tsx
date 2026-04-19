@@ -35,25 +35,25 @@ export default function SupportSection() {
   };
 
   return (
-    <section className="bg-[#f5f5f2] px-16 py-20">
-      <div className="grid grid-cols-2 gap-16 items-center">
+    <section className="bg-[#f5f5f2] md:px-16 md:py-20 px-4 py-2">
+      <div className="md:grid md:grid-cols-2 md:gap-16 items-center flex flex-col">
         
         
         <div>
           
-          <h1 className="text-5xl font-semibold text-[#2f4635] leading-tight">
+          <h1 className="md:text-5xl text-3xl font-semibold text-[#2f4635] leading-tight">
             {data.heading}
           </h1>
 
           
-          <p className="text-gray-600 mt-6 text-lg max-w-xl">
+          <p className="text-gray-600 md:mt-6 text-lg max-w-xl">
             {data.subheading}
           </p>
 
 
-          <div className="flex gap-10 mt-10">
+          <div className="flex md:flex-row md:gap-10 md:mt-10 flex-col gap-2">
             {data.features.map((feature, index) => (
-              <div key={index} className="flex flex-col gap-3 max-w-[180px]">
+              <div key={index} className="flex flex-col gap-3 max-w-45">
                 
 
                 <div className="text-3xl text-[#2f4635]">
@@ -80,7 +80,7 @@ export default function SupportSection() {
         </div>
 
 
-        <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
+        <div className="relative w-full md:h-125 h-90 mt-4 md:mt-0 rounded-2xl overflow-hidden">
           <Image
             src={data.imageUrl}
             alt="support"

@@ -1,20 +1,20 @@
 import Image from "next/image";
 import React from "react";
 
-type LinkItem =
+export type LinkItem =
     | string
     | {
         title: string;
         caption: string;
     };
 
-type Section = {
+export type Section = {
     title: string;
     links: LinkItem[];
     col: number;
 };
 
-function FooterColumn({ title, links }: Section) {
+export function FooterColumn({ title, links }: Section) {
     return (
         <div className="flex flex-col gap-4">
             <h3 className="text-lime-400 font-semibold font-sohne-dreivierfett text-xl">{title}</h3>
@@ -34,7 +34,7 @@ function FooterColumn({ title, links }: Section) {
 
                     return (
                         <div key={index}>
-                            <p className="text-gray-300 text-sm hover:text-white cursor-pointer font-sans">
+                            <p className="text-gray-300 text-xl hover:text-white cursor-pointer font-sans">
                                 {item.title}
                             </p>
                             <span className="text-xs font-sans text-gray-300">
@@ -147,8 +147,8 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="bg-[#304B39] text-white px-10 py-12">
-            <div className="grid grid-cols-4 gap-8">
+        <footer className="bg-[#304B39] text-white md:px-10 md:py-12 px-4 py-2">
+            <div className="md:grid md:grid-cols-4 md:gap-8 flex flex-col">
 
 
                 <div className="flex flex-col gap-6">
@@ -213,7 +213,7 @@ export default function Footer() {
                 </div>
 
 
-                <div className="col-span-3 grid grid-cols-3 gap-18 pl-26 font-sans">
+                <div className="md:col-span-3 md:grid md:grid-cols-3 md:gap-18 md:pl-26 font-sans flex flex-col">
                     <div className="flex flex-col gap-4">
                         {col1.map((section, index) => (
                             <FooterColumn key={index} {...section} />

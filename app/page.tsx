@@ -11,7 +11,7 @@ import TestimonialSection from "@/components/homepage/TestimonialSection";
 import { PropsWithChildren } from "react";
 
 const Section = ({ children }: PropsWithChildren) => {
-  return <div className="px-8 pb-8">{children}</div>;
+  return <div className="md:px-8 md:pb-8 px-2 pb-2">{children}</div>;
 };
 
 export default function Home() {
@@ -25,18 +25,27 @@ export default function Home() {
       secondaryBtn: "Why Movato",
     },
     {
-      image: "/assets/hero/hero-1.jpg",
-      title: "TRAVEL SMART",
-      description: "Designed for modern explorers.",
-      primaryBtn: "Explore",
-      secondaryBtn: "Learn More",
+      image: "/assets/hero/hero-3.webp",
+      title: "2.5X \n STRONGER",
+      description: "Built with high-strength polycarbonate shell to deal with \n overpacking and rough handling during real-world travel.",
+      primaryBtn: "Shop Movato Madison",
+      secondaryBtn: "Why Movato",
+    },
+    {
+      image: "/assets/hero/hero-2.webp",
+      title: "FAST \n FRONT- \n ACCESS",
+      description: "Fast access to essentials without opening the main \n suitcase—designed for a smoother transit experience.",
+      primaryBtn: "Shop Movato Orlando",
+      secondaryBtn: "Why Movato",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-white w-full flex flex-col">
+    <div className="min-h-screen bg-red-500 w-full flex flex-col relative">
+      
       <Header />
-      <div className="p-8 W-full">
+      
+      <div className="md:p-8 px-2 py-2 w-full">
         <HeroCarousel slides={slides} />
       </div>
       <Section>
