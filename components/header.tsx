@@ -19,9 +19,8 @@ const Button = ({
 }: PropsWithChildren<{ isActive?: boolean; onClick: () => void }>) => {
   return (
     <button
-      className={`text-base text-gray-600 text-center leading-snug tracking-tight ${
-        isActive ? "font-semibold" : "font-normal"
-      }`}
+      className={`text-base text-gray-600 text-center leading-snug hover:font-semibold tracking-tight ${isActive ? "font-semibold" : "font-normal"
+        }`}
       onClick={onClick}
     >
       {children}
