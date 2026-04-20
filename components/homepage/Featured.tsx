@@ -15,7 +15,7 @@ const ImageCard = ({
         <Image
           src={img}
           alt={imgTitle}
-          className="w-full h-full object-cover"
+          className="w-full min-h-40 object-cover"
           height={120}
           width={60}
         />
@@ -69,8 +69,8 @@ export function Featured() {
     },
   ];
   return (
-    <div className="bg-[#25282A] rounded-2xl px-8 py-16 flex items-center">
-      <div className="w-[40%] flex flex-col gap-4">
+    <div className="bg-[#25282A] rounded-2xl md:px-8 md:py-16 p-4 flex md:flex-row flex-col items-center">
+      <div className="md:w-[40%] flex flex-col gap-4">
         <h4 className="text-3xl text-[#DB6B30] font-thin font-sohne-dreivierfett uppercase">
           Engineered for <br /> real-world travel.
         </h4>
@@ -80,7 +80,7 @@ export function Featured() {
           cargo holds.
         </p>
       </div>
-      <div className="grid grid-cols-4 gap-3 text-white">
+      <div className="grid md:grid-cols-4 grid-cols-2 md:mt-0 mt-4 gap-3 text-white">
         {features.map((f, index) => (
           <ImageCard key={`feature-${index}`} {...f} />
         ))}

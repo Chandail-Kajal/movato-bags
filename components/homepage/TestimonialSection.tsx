@@ -1,10 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import {
-  FaStar,
-  FaStarHalfAlt,
-  FaRegStar,
-} from "react-icons/fa";
+import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type Testimonial = {
@@ -14,7 +10,6 @@ type Testimonial = {
   role: string;
 };
 
-
 function StarRating({ rating }: { rating: number }) {
   return (
     <div className="flex gap-1 mb-4">
@@ -22,13 +17,9 @@ function StarRating({ rating }: { rating: number }) {
         if (rating >= star) {
           return <FaStar key={star} className="text-black" />;
         } else if (rating >= star - 0.5) {
-          return (
-            <FaStarHalfAlt key={star} className="text-black" />
-          );
+          return <FaStarHalfAlt key={star} className="text-black" />;
         } else {
-          return (
-            <FaRegStar key={star} className="text-gray-400" />
-          );
+          return <FaRegStar key={star} className="text-gray-400" />;
         }
       })}
     </div>
@@ -36,7 +27,6 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function TestimonialSection() {
-
   const testimonials: Testimonial[] = [
     {
       rating: 4.5,
@@ -58,7 +48,6 @@ export default function TestimonialSection() {
     },
   ];
 
-
   const [index, setIndex] = useState(0);
 
   const next = () => {
@@ -66,22 +55,16 @@ export default function TestimonialSection() {
   };
 
   const prev = () => {
-    setIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
+    setIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
   };
 
   return (
-    <section className="bg-[#2f4635] text-white py-20 px-10">
-      
-
-      <h2 className="text-4xl text-center font-semibold mb-14">
+    <section className="bg-[#2f4635] text-white md:py-20 md:px-10 px-4 py-4">
+      <h2 className="md:text-4xl text-2xl text-center font-semibold md:mb-14 mb-4">
         Trusted By Travellers Who Expect More
       </h2>
 
       <div className="relative flex items-center justify-center">
-        
-
         <button
           onClick={prev}
           className="absolute left-0 bg-[#d9d9d9] text-black w-12 h-12 rounded-full flex items-center justify-center"
@@ -89,32 +72,18 @@ export default function TestimonialSection() {
           <ChevronLeft />
         </button>
 
-
-        <div className="grid grid-cols-3 gap-8 w-full max-w-6xl">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 w-full max-w-6xl">
           {testimonials.map((item, i) => (
-            <div
-              key={i}
-              className="bg-[#d9d9d9] text-black p-6 rounded-xl"
-            >
-
+            <div key={i} className="bg-[#d9d9d9] text-black p-6 rounded-xl">
               <StarRating rating={item.rating} />
 
+              <p className="text-sm leading-relaxed mb-6">{item.text}</p>
 
-              <p className="text-sm leading-relaxed mb-6">
-                {item.text}
-              </p>
-
-
-              <h3 className="text-lg font-semibold">
-                {item.name}
-              </h3>
-              <p className="text-sm text-gray-700">
-                {item.role}
-              </p>
+              <h3 className="text-lg font-semibold">{item.name}</h3>
+              <p className="text-sm text-gray-700">{item.role}</p>
             </div>
           ))}
         </div>
-
 
         <button
           onClick={next}
@@ -124,8 +93,7 @@ export default function TestimonialSection() {
         </button>
       </div>
 
-
-      <div className="flex justify-center mt-12">
+      <div className="flex justify-center md:mt-12 mt-4">
         <button className="border border-white px-8 py-3 rounded-md hover:bg-white hover:text-black transition">
           Read All Reviews
         </button>

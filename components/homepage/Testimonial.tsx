@@ -53,9 +53,9 @@ export function Testimonial() {
   ];
 
   return (
-    <div className="bg-[#25282A] p-16 rounded-3xl px-20 flex items-center">
-      <div className="flex w-1/2 flex-col gap-6">
-        <h4 className="font-sans-dirt uppercase text-7xl text-white">
+    <div className="bg-[#25282A] md:p-16 rounded-3xl md:px-20 p-4 flex md:flex-row flex-col items-center">
+      <div className="flex md:w-1/2 flex-col md:gap-6 gap-4">
+        <h4 className="font-sans-dirt uppercase md:text-7xl text-4xl text-white">
           Tested for <br /> everyday <br />
           travel use.
         </h4>
@@ -63,13 +63,13 @@ export function Testimonial() {
           Movato suitcases are tested under controlled conditions <br /> to
           ensure consist performance across repeated trips and <br /> regular
           handling.
-          <span className="block mt-4 text-xs">
+          <span className="block md:mt-4 mt-2 text-xs">
             * Tests conducted under controlled conditions to simulate real-world
             conditions.
           </span>
         </p>
       </div>
-      <div className="flex-1 grid grid-cols-2 gap-6">
+      <div className="flex-1 grid md:grid-cols-2 md:gap-6 gap-4 mt-4 md:mt-0">
         {cards.map((card, index) => (
           <Card key={`testimonial_card_${index}`} {...card} />
         ))}
