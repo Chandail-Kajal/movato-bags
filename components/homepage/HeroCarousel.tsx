@@ -27,9 +27,9 @@ export function HeroCarousel({ slides }: Props) {
   };
 
   return (
-    <div className="w-full overflow-hidden relative rounded-2xl">
+    <div className="w-full overflow-hidden relative rounded-3xl ">
       <div
-        className="flex transition-transform duration-500 ease-in-out"
+        className="flex transition-transform duration-500 ease-in-out "
         style={{
           transform: `translateX(-${current * 100}%)`,
         }}

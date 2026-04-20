@@ -11,7 +11,7 @@ type FAQItem = {
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  // 👉 All data inside same component (can be replaced with API later)
+  
   const faqData: FAQItem[] = [
     {
       question: "Is Movato a reliable luggage brand?",
@@ -75,12 +75,12 @@ export default function FAQ() {
   return (
     <div className="w-full max-w-5xl mx-auto px-6 py-16">
       
-      {/* Heading */}
+      
       <h2 className="text-3xl md:text-4xl font-semibold text-center text-[#3D4637] mb-12">
         Frequently Asked Questions
       </h2>
 
-      {/* FAQ List */}
+     
       <div className="space-y-6">
         {faqData.map((item, index) => {
           const isOpen = openIndex === index;
@@ -108,7 +108,7 @@ export default function FAQ() {
                   isOpen ? "max-h-40 mt-3" : "max-h-0"
                 }`}
               >
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-black text-sm leading-relaxed font-sans">
                   {item.answer}
                 </p>
               </div>

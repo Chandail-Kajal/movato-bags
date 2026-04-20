@@ -6,7 +6,7 @@ import React from "react";
 export default function SupportSection() {
   
   const data = {
-    heading: "Support That Travels With You.",
+    heading: "Support That \nTravels With You.",
     subheading:
       "From warranty coverage to customer support, Movato provides a friction-free ownership experience.",
     buttonText: "Shop Now",
@@ -41,7 +41,7 @@ export default function SupportSection() {
         
         <div>
           
-          <h1 className="md:text-5xl text-3xl font-semibold text-[#2f4635] leading-tight">
+          <h1 className="md:text-5xl text-5xl font-sohne-dreivierfett text-[#2f4635] leading-tight">
             {data.heading}
           </h1>
 

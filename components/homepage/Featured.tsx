@@ -26,11 +26,11 @@ const ImageCard = ({
               "linear-gradient(to top, black 0%, black 20%, transparent 100%)",
             maskImage:
               "linear-gradient(to top, black 0%, black 20%, transparent 100%)",
-            backdropFilter: "blur(12px)",
-            WebkitBackdropFilter: "blur(12px)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
           }}
         ></div>
-        <div className="absolute inset-x-0 bottom-0 h-[80%] bg-gradient-to-t from-black/70 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-[80%] bg-linear-to-t from-black/70 to-transparent pointer-events-none" />
         <h3 className="absolute bottom-4 left-4 z-10 w-1/2 leading-tight text-lg font-semibold text-white font-sohne-halbfett antialiased">
           {imgTitle}
         </h3>
@@ -44,25 +44,25 @@ const ImageCard = ({
 export function Featured() {
   const features: { img: string; imgTitle: string; caption: string }[] = [
     {
-      img: "/assets/images/feature-1.jpg",
+      img: "/assets/images/feature-1.svg",
       imgTitle: "Airport Handling",
       caption:
         "Built to handle constant handling across check-in counters and baggage belts.",
     },
     {
-      img: "/assets/images/feature-2.jpg",
+      img: "/assets/images/feature-2.svg",
       imgTitle: "All-Terrain Mobility",
       caption:
         "Designed to roll confidently across uneven pavements and gravel roads.",
     },
     {
-      img: "/assets/images/feature-4.png",
+      img: "/assets/images/feature-4.svg",
       imgTitle: "Repeated Lifting",
       caption:
         "Engineered for repeated lifting — even when fully packed.",
     },
     {
-      img: "/assets/images/feature-3.jpg",
+      img: "/assets/images/feature-3.svg",
       imgTitle: "Long Journeys",
       caption:
         "Designed for consistent performance across years of heavy-duty travel.",

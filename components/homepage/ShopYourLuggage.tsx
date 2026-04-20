@@ -20,7 +20,7 @@ export function ShopYourLuggage() {
   );
 
   return (
-    <div className="flex flex-col items-center md:pt-8 md:gap-8 p-4">
+    <div className="flex flex-col items-center md:pt-8 md:gap-8 p-2">
       <div className="flex flex-col gap-4">
         <h4 className="font-sohne-halbfett md:text-5xl text-3xl text-[#3D4637]">
           Shop Your Luggage

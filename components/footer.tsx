@@ -18,7 +18,6 @@ export function FooterColumn({ title, links }: Section) {
     return (
         <div className="flex flex-col gap-4">
             <h3 className="text-lime-400 font-semibold font-sohne-dreivierfett text-xl">{title}</h3>
-
             <div className="flex flex-col gap-2">
                 {links.map((item, index) => {
                     if (typeof item === "string") {
@@ -147,8 +146,16 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="bg-[#304B39] text-white md:px-10 md:py-12 px-4 py-2">
-            <div className="md:grid md:grid-cols-4 md:gap-8 flex flex-col">
+        <footer className="bg-[#304B39] text-white md:px-10 md:py-12 px-4 py-2 relative overflow-hidden">
+            <div className="absolute inset-0 opacity-20 -z-10">
+                <Image
+                    src="/assets/images/header-1.jpeg"
+                    fill
+                    alt="footer background"
+                    className="object-cover"
+                />
+            </div>
+            <div className="md:grid md:grid-cols-4 md:gap-8 flex flex-col relative">
 
 
                 <div className="flex flex-col gap-6">

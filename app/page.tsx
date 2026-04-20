@@ -22,7 +22,7 @@ export default async function Home() {
     <div className="min-h-screen bg-white w-full flex flex-col relative">
       <Header />
 
-      <div className="md:p-8 px-2 py-2 w-full">
+      <div className="md:p-6 px-2 py-2 w-full">
         <HeroCarousel slides={slides} />
       </div>
       <Section>
@@ -42,7 +42,7 @@ export default async function Home() {
       <Section>
         <TestimonialSection />
       </Section>
-      <Section>
+       <Section>
         <FAQ />
       </Section>
       <Section>

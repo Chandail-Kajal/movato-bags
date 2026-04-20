@@ -60,7 +60,7 @@ export default function TestimonialSection() {
 
   return (
     <section className="bg-[#2f4635] text-white md:py-20 md:px-10 px-4 py-4">
-      <h2 className="md:text-4xl text-2xl text-center font-semibold md:mb-14 mb-4">
+      <h2 className="md:text-4xl text-xl text-center md:mb-14 mb-4 font-sohne-dreivierfett">
         Trusted By Travellers Who Expect More
       </h2>
 
@@ -72,15 +72,15 @@ export default function TestimonialSection() {
           <ChevronLeft />
         </button>
 
-        <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 w-full max-w-6xl">
+        <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 w-full max-w-6xl ">
           {testimonials.map((item, i) => (
             <div key={i} className="bg-[#d9d9d9] text-black p-6 rounded-xl">
               <StarRating rating={item.rating} />
 
-              <p className="text-sm leading-relaxed mb-6">{item.text}</p>
+              <p className="text-sm leading-relaxed mb-6 font-sans">{item.text}</p>
 
-              <h3 className="text-lg font-semibold">{item.name}</h3>
-              <p className="text-sm text-gray-700">{item.role}</p>
+              <h3 className="text-lg font-semibold font-sans">{item.name}</h3>
+              <p className="text-sm text-gray-700 font-sans">{item.role}</p>
             </div>
           ))}
         </div>

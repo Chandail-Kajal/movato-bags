@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
@@ -131,7 +132,7 @@ export const AsyncAutocomplete = ({
         />
       </div>
 
-      {/* Dropdown */}
+      
       {open &&
         createPortal(
           <div
@@ -140,7 +141,7 @@ export const AsyncAutocomplete = ({
             {...getFloatingProps()}
             className={clsx(
               "z-50 bg-background border border-border rounded-md shadow-lg max-h-60 overflow-auto",
-              // open && loading && options.length === 0 && "hidden",
+              
               !loading && options.length === 0 && !query && "hidden",
             )}
           >

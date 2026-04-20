@@ -27,9 +27,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${rubik.variable} ${rubikDirt.variable} h-full  w-screen antialiased`}
+      className={`${rubik.variable} ${rubikDirt.variable} h-full  antialiased`}
     >
-      <body className="min-h-full flex w-screen flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
   );
 }
