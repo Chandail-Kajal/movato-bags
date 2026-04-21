@@ -19,7 +19,7 @@ export async function PUT(req: NextRequest) {
       );
     }
 
-    // ✅ Bulk update
+   
     const bulkOps = items.map((item: any) => ({
       updateOne: {
         filter: { _id: item.id },

@@ -17,6 +17,7 @@ type Props = {
 
 export function HeroCarousel({ slides }: Props) {
   const [current, setCurrent] = useState(0);
+  console.log(slides)
 
   const prevSlide = () => {
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));

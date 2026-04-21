@@ -102,7 +102,7 @@ export default function FAQ() {
                 </div>
               </div>
 
-              {/* Answer */}
+         
               <div
                 className={`transition-all duration-300 overflow-hidden ${
                   isOpen ? "max-h-40 mt-3" : "max-h-0"

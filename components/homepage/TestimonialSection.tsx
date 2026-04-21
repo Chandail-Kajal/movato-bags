@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import React, { useState } from "react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
@@ -74,7 +75,7 @@ export default function TestimonialSection() {
 
         <div className="grid md:grid-cols-3 grid-cols-1 md:gap-8 gap-4 w-full max-w-6xl ">
           {testimonials.map((item, i) => (
-            <div key={i} className="bg-[#d9d9d9] text-black p-6 rounded-xl">
+            <div key={i} className="bg-[#E6E6DC] text-black p-6 rounded-xl">
               <StarRating rating={item.rating} />
 
               <p className="text-sm leading-relaxed mb-6 font-sans">{item.text}</p>

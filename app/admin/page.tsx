@@ -23,7 +23,7 @@ export default function HeroAdmin() {
   const [showModal, setShowModal] = useState(false);
   const [editItem, setEditItem] = useState<HeroType | null>(null);
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<any>({
     image: "",
     title: "",
     description: "",
@@ -41,7 +41,27 @@ export default function HeroAdmin() {
   };
 
   useEffect(() => {
-    fetchItems();
+    let ignore = false;
+
+    const loadData = async () => {
+      try {
+        const res = await fetch("/api/admin");
+        const data = await res.json();
+
+        if (!ignore) {
+          setItems(data.data || []);
+          setOriginal(data.data || []);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    loadData();
+
+    return () => {
+      ignore = true; // ✅ prevents unwanted state updates
+    };
   }, []);
 
   // ✅ Check reorder change
@@ -106,27 +126,33 @@ export default function HeroAdmin() {
     fetchItems();
   };
 
-  // ✅ Submit (Add / Edit)
   const handleSubmit = async () => {
-    if (!form.image || !form.title) return;
+    if (!form.title) return;
+
+    const formData = new FormData();
+
+    formData.append("title", form.title);
+    formData.append("description", form.description);
+    formData.append("primaryBtn", form.primaryBtn);
+    formData.append("secondaryBtn", form.secondaryBtn);
+
+    if (form.image instanceof File) {
+      formData.append("image", form.image);
+    }
 
     if (editItem) {
+      formData.append("id", editItem._id);
+
       await fetch("/api/admin", {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          id: editItem._id,
-          ...form,
-        }),
+        body: formData,
       });
     } else {
+      formData.append("order", String(items.length));
+
       await fetch("/api/admin", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...form,
-          order: items.length,
-        }),
+        body: formData,
       });
     }
 
@@ -232,14 +258,12 @@ export default function HeroAdmin() {
                       {/* Toggle */}
                       <div
                         onClick={() => toggleActive(item)}
-                        className={`ml-auto w-10 h-5 flex items-center rounded-full p-1 cursor-pointer ${
-                          item.isActive ? "bg-green-500" : "bg-gray-300"
-                        }`}
+                        className={`ml-auto w-10 h-5 flex items-center rounded-full p-1 cursor-pointer ${item.isActive ? "bg-green-500" : "bg-gray-300"
+                          }`}
                       >
                         <div
-                          className={`bg-white w-4 h-4 rounded-full shadow transform ${
-                            item.isActive ? "translate-x-5" : ""
-                          }`}
+                          className={`bg-white w-4 h-4 rounded-full shadow transform ${item.isActive ? "translate-x-5" : ""
+                            }`}
                         />
                       </div>
 
@@ -273,19 +297,37 @@ export default function HeroAdmin() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black/50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-xl w-[350px]">
+          <div className="bg-white p-6 rounded-xl w-87.5">
             <h2 className="mb-4 font-semibold">
               {editItem ? "Edit Banner" : "Add Banner"}
             </h2>
 
-            <input
-              placeholder="Image URL"
-              value={form.image}
-              onChange={(e) =>
-                setForm({ ...form, image: e.target.value })
-              }
-              className="w-full border px-3 py-2 mb-2 rounded"
-            />
+            {/* ✅ IMAGE UPLOAD */}
+            <div className="mb-3">
+              {/* Preview */}
+              {typeof form.image === "string" && form.image && (
+                <img
+                  src={form.image}
+                  alt="preview"
+                  className="w-full h-32 object-cover rounded mb-2"
+                />
+              )}
+
+              <input
+                type="file"
+                accept=".png,.jpg,.jpeg,.svg"
+                className="w-full border px-3 py-2 rounded"
+                onChange={(e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+
+                  setForm((prev: any) => ({
+                    ...prev,
+                    image: file, // ✅ FILE stored
+                  }));
+                }}
+              />
+            </div>
 
             <input
               placeholder="Title"

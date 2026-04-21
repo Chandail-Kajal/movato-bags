@@ -1,4 +1,5 @@
 "use client"
+
 import { Table } from "./table";
 import React from "react";
 import clsx from "clsx";

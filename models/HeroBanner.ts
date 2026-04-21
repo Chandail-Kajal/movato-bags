@@ -18,7 +18,6 @@ const HeroBannerSchema: Schema<IHeroBanner> = new Schema(
   {
     image: {
       type: String,
-      required: true,
       trim: true,
     },
     title: {
