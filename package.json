@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.19",
+    "@hello-pangea/dnd": "^18.0.1",
     "clsx": "^2.1.1",
     "clx": "^1.0.0",
     "lucide-react": "^1.8.0",

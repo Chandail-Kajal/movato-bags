@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { connectDb } from "@/lib/db";
 import { heroModel } from "@/models/hero";
+import HeroBanner from "@/models/HeroBanner";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -8,7 +9,7 @@ export async function GET() {
   try {
     await connectDb();
 
-    const heros = await heroModel.find().sort({ sortOrder: 1 });
+    const heros = await HeroBanner.find().sort({ order: 1 });
 
     return NextResponse.json({ data: heros, success: true });
   } catch (error) {
@@ -22,8 +23,8 @@ export async function POST(req: NextRequest) {
     await connectDb();
 
     const body = await req.json();
-
-    const hero = await heroModel.create(body);
+    console.log(body);
+    const hero = await HeroBanner.create(body);
 
     return NextResponse.json({ data: hero, success: true });
   } catch (error) {
@@ -39,7 +40,7 @@ export async function PUT(req: NextRequest) {
     const body = await req.json();
     const { id, ...updateData } = body;
 
-    const updatedHero = await heroModel.findByIdAndUpdate(
+    const updatedHero = await HeroBanner.findByIdAndUpdate(
       id,
       updateData,
       { new: true }
