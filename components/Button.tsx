@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { type ElementType, forwardRef, type Ref } from "react";
 import clsx from "clsx";
@@ -105,12 +106,12 @@ export const Button = forwardRef(
 
     const variantClass =
       variant === "contained"
-        ? containedColors[color]
+        ? containedColors[color as Color]
         : variant === "outlined"
-          ? outlinedColors[color]
-          : textColors[color];
+          ? outlinedColors[color as Color]
+          : textColors[color as Color];
 
-    const radiusClass = radiusMap[rounded];
+    const radiusClass = radiusMap[rounded as string];
 
     return (
       <Component
@@ -121,7 +122,7 @@ export const Button = forwardRef(
         }}
         className={clsx(
           baseClasses,
-          sizeClasses[size],
+          sizeClasses[size as Size],
           variantClass,
           radiusClass,
           !disableRing && "focus:outline-none focus:ring-2 focus:ring-offset-2",

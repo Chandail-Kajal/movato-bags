@@ -200,7 +200,7 @@ export default function Footer() {
                     </div>
 
 
-                    <div className="font-sans"> 
+                    <div className="font-sans">
                         <h3 className="text-lime-400 font-semibold text-xl">
                             STAY UPDATED
                         </h3>
