@@ -1,19 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { connectDb } from "@/lib/db";
-import { heroModel } from "@/models/hero";
-import HeroBanner from "@/models/HeroBanner";
 import { NextRequest, NextResponse } from "next/server";
-
+import { shopModel } from "@/models/ShopYourLuggage";
 
 export async function GET(req: NextRequest) {
   try {
     await connectDb();
 
-    const heros = await HeroBanner
-      .find({ isActive: true })
-      .sort({ order: 1 });
+    const items = await shopModel
+      .find({ isActive: true }) 
+      .sort({ order: 1 });      
 
-    return NextResponse.json({ data: heros, success: true });
+    return NextResponse.json({ data: items, success: true });
   } catch (error) {
     return NextResponse.json({ success: false }, { status: 500 });
   }

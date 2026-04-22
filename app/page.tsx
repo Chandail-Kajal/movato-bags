@@ -8,7 +8,7 @@ import { ShopYourLuggage } from "@/components/homepage/ShopYourLuggage";
 import SupportSection from "@/components/homepage/supportSection";
 import { Testimonial } from "@/components/homepage/Testimonial";
 import TestimonialSection from "@/components/homepage/TestimonialSection";
-import { getHeroBanners } from "@/lib/api";
+import { getHeroBanners, getshopyourluggage } from "@/lib/api";
 import { PropsWithChildren } from "react";
 
 const Section = ({ children }: PropsWithChildren) => {
@@ -17,7 +17,7 @@ const Section = ({ children }: PropsWithChildren) => {
 
 export default async function Home() {
   const slides = await getHeroBanners()
-
+  const images=await getshopyourluggage()
   return (
     <div className="min-h-screen bg-white w-full flex flex-col relative">
       <Header />
@@ -30,7 +30,7 @@ export default async function Home() {
       </Section>
 
       <Section>
-        <ShopYourLuggage />
+        <ShopYourLuggage images={images} />
       </Section>
 
       <Section>

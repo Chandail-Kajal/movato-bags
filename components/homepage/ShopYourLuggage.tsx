@@ -14,10 +14,8 @@ const Button = ({
   );
 };
 
-export function ShopYourLuggage() {
-  const images = Array.from({ length: 4 }).map(
-    (_, idx) => `/assets/images/shop-luggage-${idx + 1}.png`,
-  );
+export function ShopYourLuggage({images}:{images:string[]}) {
+  
 
   return (
     <div className="flex flex-col items-center md:pt-8 md:gap-8 p-2">

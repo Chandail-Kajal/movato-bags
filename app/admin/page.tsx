@@ -31,7 +31,7 @@ export default function HeroAdmin() {
     secondaryBtn: "",
   });
 
-  // ✅ Fetch Data
+  
   const fetchItems = async () => {
     const res = await fetch("/api/admin");
     const data = await res.json();

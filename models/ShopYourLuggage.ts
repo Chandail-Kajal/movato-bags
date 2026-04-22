@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const ShopYourLuggageSchema = new mongoose.Schema({
-    imageurl:String,
-    
+    image:String,
+    order:Number,
     isActive:Boolean,
 },
 {
