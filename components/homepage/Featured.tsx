@@ -11,13 +11,13 @@ const ImageCard = ({
 }) => {
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative overflow-hidden rounded-lg">
+      <div className="relative md:h-56 h-60 overflow-hidden rounded-lg">
         <Image
           src={img}
           alt={imgTitle}
-          className="w-full min-h-40 object-cover"
-          height={120}
-          width={60}
+          className="w-full object-cover"
+          height={500}
+          width={300}
         />
         <div
           className="absolute bottom-0 left-0 right-0 h-[30%] pointer-events-none"
@@ -26,8 +26,8 @@ const ImageCard = ({
               "linear-gradient(to top, black 0%, black 20%, transparent 100%)",
             maskImage:
               "linear-gradient(to top, black 0%, black 20%, transparent 100%)",
-            backdropFilter: "blur(10px)",
-            WebkitBackdropFilter: "blur(10px)",
+            backdropFilter: "blur(12px)",
+            WebkitBackdropFilter: "blur(12px)",
           }}
         ></div>
         <div className="absolute inset-x-0 bottom-0 h-[80%] bg-linear-to-t from-black/70 to-transparent pointer-events-none" />
@@ -44,33 +44,33 @@ const ImageCard = ({
 export function Featured() {
   const features: { img: string; imgTitle: string; caption: string }[] = [
     {
-      img: "/assets/images/feature-1.svg",
+      img: "/assets/images/feature-1.jpg",
       imgTitle: "Airport Handling",
       caption:
         "Built to handle constant handling across check-in counters and baggage belts.",
     },
     {
-      img: "/assets/images/feature-2.svg",
+      img: "/assets/images/feature-2.jpg",
       imgTitle: "All-Terrain Mobility",
       caption:
         "Designed to roll confidently across uneven pavements and gravel roads.",
     },
     {
-      img: "/assets/images/feature-4.svg",
+      img: "/assets/images/feature-4.png",
       imgTitle: "Repeated Lifting",
       caption:
         "Engineered for repeated lifting — even when fully packed.",
     },
     {
-      img: "/assets/images/feature-3.svg",
+      img: "/assets/images/feature-3.jpg",
       imgTitle: "Long Journeys",
       caption:
         "Designed for consistent performance across years of heavy-duty travel.",
     },
   ];
   return (
-    <div className="bg-[#25282A] rounded-2xl md:px-8 md:py-16 p-4 flex md:flex-row flex-col items-center">
-      <div className="md:w-[40%] flex flex-col gap-4">
+    <div className="bg-[#25282A] rounded-2xl md:px-8 md:py-16 p-4 grid md:grid-cols-3 grid-cols-1 w-full md:flex-row flex-col items-center">
+      <div className="flex flex-col gap-4">
         <h4 className="text-3xl text-[#DB6B30] font-thin font-sohne-dreivierfett uppercase">
           Engineered for <br /> real-world travel.
         </h4>
@@ -80,7 +80,7 @@ export function Featured() {
           cargo holds.
         </p>
       </div>
-      <div className="grid md:grid-cols-4 grid-cols-2 md:mt-0 mt-4 gap-3 text-white">
+      <div className="col-span-2 grid md:grid-cols-4 md:mt-0 mt-4 gap-3 text-white">
         {features.map((f, index) => (
           <ImageCard key={`feature-${index}`} {...f} />
         ))}
