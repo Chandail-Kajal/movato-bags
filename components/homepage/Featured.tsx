@@ -10,8 +10,8 @@ const ImageCard = ({
   caption: string;
 }) => {
   return (
-    <div className="flex flex-col gap-3">
-      <div className="relative md:h-56 h-60 overflow-hidden rounded-lg">
+    <div className="flex flex-col gap-3 md:w-48">
+      <div className="relative md:h-48 h-60 overflow-hidden rounded-lg">
         <Image
           src={img}
           alt={imgTitle}
@@ -69,7 +69,7 @@ export function Featured() {
     },
   ];
   return (
-    <div className="bg-[#25282A] rounded-2xl md:px-8 md:py-16 p-4 grid md:grid-cols-3 grid-cols-1 w-full md:flex-row flex-col items-center">
+    <div className="bg-[#25282A] rounded-3xl md:px-8 md:py-16 p-4 flex w-full md:flex-row flex-col justify-between items-center">
       <div className="flex flex-col gap-4">
         <h4 className="text-3xl text-[#DB6B30] font-thin font-sohne-dreivierfett uppercase">
           Engineered for <br /> real-world travel.

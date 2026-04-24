@@ -8,21 +8,22 @@ import { ShopYourLuggage } from "@/components/homepage/ShopYourLuggage";
 import SupportSection from "@/components/homepage/supportSection";
 import { Testimonial } from "@/components/homepage/Testimonial";
 import TestimonialSection from "@/components/homepage/TestimonialSection";
-import { getHeroBanners, getshopyourluggage } from "@/lib/api";
+import { fetchPublicData } from "@/lib/api";
 import { PropsWithChildren } from "react";
+
+
 
 const Section = ({ children }: PropsWithChildren) => {
   return <div className="md:px-8 md:pb-8 px-2 pb-2">{children}</div>;
 };
 
 export default async function Home() {
-  const slides = await getHeroBanners()
-  const images=await getshopyourluggage()
+  const slides = await fetchPublicData("hero")
   return (
     <div className="min-h-screen bg-white w-full flex flex-col relative">
       <Header />
 
-      <div className="md:p-6 px-2 py-2 w-full">
+      <div className="md:p-8 px-2 py-2 w-full">
         <HeroCarousel slides={slides} />
       </div>
       <Section>
@@ -30,7 +31,7 @@ export default async function Home() {
       </Section>
 
       <Section>
-        <ShopYourLuggage images={images} />
+        <ShopYourLuggage />
       </Section>
 
       <Section>
@@ -42,7 +43,7 @@ export default async function Home() {
       <Section>
         <TestimonialSection />
       </Section>
-       <Section>
+      <Section>
         <FAQ />
       </Section>
       <Section>

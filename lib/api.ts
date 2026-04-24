@@ -1,19 +1,26 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-export async function getHeroBanners() {
-  const res = await fetch("http://localhost:3000/api/public/heroes", {
-    cache: "no-store",
-  });
+// lib/axios.ts
+import axios from "axios";
 
-  const data = await res.json();
+export const api = axios.create({
+  baseURL: "http://localhost:3000/api",
+});
 
-  return data.data|| [];
-}
-export async function getshopyourluggage() {
-  const res = await fetch("http://localhost:3000/api/public/shopimages", {
-    cache: "no-store",
-  });
 
-  const data = await res.json();
+export const fetchPublicData = async (
+  section: "shop" | "hero" | "featured",
+  queryParams: Record<string, any> = {}
+) => {
+  try {
+    const queryString = new URLSearchParams(queryParams).toString();
 
-  return data.data?.map((item:any)=>{ return item.image}) || [];
-}
+    const url = `/public/sections/${section}${queryString ? `?${queryString}` : ""
+      }`;
+
+    const { data } = await api.get(url);
+
+    return data?.data || [];
+  } catch (error) {
+    console.error("fetchPublicData error:", error);
+    return [];
+  }
+};

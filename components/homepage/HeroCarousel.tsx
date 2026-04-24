@@ -30,7 +30,7 @@ export function HeroCarousel({ slides }: Props) {
   return (
     <div className="w-full overflow-hidden relative rounded-3xl ">
       <div
-        className="flex transition-transform duration-500 ease-in-out "
+        className="flex transition-transform duration-500 ease-in-out"
         style={{
           transform: `translateX(-${current * 100}%)`,
         }}
@@ -45,28 +45,28 @@ export function HeroCarousel({ slides }: Props) {
               alt="slide"
               width={1920}
               height={1280}
-              className="w-full h-72 md:h-160 object-cover"
+              className="w-full h-72 md:h-158 object-cover"
             />
 
-            <div className="md:absolute md:inset-0 flex items-end md:px-10 px-4 py-6">
-              <div className="md:w-[38%] w-full text-[#2F3A2F] space-y-4">
-                <h1 className="font-black uppercase md:text-8xl text-3xl leading-tight">
+            <div className="md:absolute md:inset-0 flex items-end md:px-10 px-4 py-10">
+              <div className="md:w-[38%] w-full text-[#2F3A2F] flex flex-col ">
+                <h1 className="font-black font-sohne-extrafett uppercase md:text-7xl md:leading-18 leading-tight text-3xl">
                   {slide.title}
                 </h1>
 
-                <p className="text-base md:text-lg text-gray-700">
+                <p className="text-base md:text-lg leading-tight md:mt-1 text-gray-700">
                   {slide.description}
                 </p>
 
-                <div className="flex flex-col gap-3 pt-2">
+                <div className="flex flex-col gap-3 md:mt-8 md:mb-6">
                   {slide.primaryBtn && (
-                    <button className="bg-[#2F4A36] text-white px-6 py-3">
+                    <button className="bg-[#2F4A36] text-white px-6 py-4 rounded-sm">
                       {slide.primaryBtn}
                     </button>
                   )}
 
                   {slide.secondaryBtn && (
-                    <button className="bg-white/70 backdrop-blur px-6 py-3 border">
+                    <button className="bg-white/70 backdrop-blur px-6 py-4 border rounded-sm">
                       {slide.secondaryBtn}
                     </button>
                   )}

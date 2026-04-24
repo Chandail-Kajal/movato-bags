@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Rubik, Rubik_Dirt } from "next/font/google"; 
+import { Rubik, Rubik_Dirt, Geist } from "next/font/google"; 
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const rubik = Rubik({
   variable: "--font-rubik",
@@ -27,7 +30,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${rubik.variable} ${rubikDirt.variable} h-full  antialiased`}
+      className={cn("h-full", "antialiased", rubik.variable, rubikDirt.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>
