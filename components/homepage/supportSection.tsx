@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import { FaHeadset, FaSuitcase, FaAward } from "react-icons/fa";
+import icon1 from "@/assets/icons/icon-1.svg";
 import React from "react";
 
 export default function SupportSection() {
   
   const data = {
-    heading: "Support That \nTravels With You.",
+    heading: "Support That\nTravels with you",
     subheading:
       "From warranty coverage to customer support, Movato provides a friction-free ownership experience.",
     buttonText: "Shop Now",
@@ -14,19 +14,19 @@ export default function SupportSection() {
 
     features: [
       {
-        icon: <FaAward />,
+        path:"/assets/icons/icon-1.svg",
         title: "3-YEAR INTERNATIONAL WARRANTY",
         description:
           "Coverage designed for real-world travel, not fine print.",
       },
       {
-        icon: <FaHeadset />,
+        path:"/assets/icons/icon-2.svg",
         title: "DEDICATED CUSTOMER SUPPORT",
         description:
           "Support teams that understand travel issues and respond when it matters.",
       },
       {
-        icon: <FaSuitcase />,
+        path:"/assets/icons/icon-3.svg",
         title: "BUILT FOR LONG-TERM OWNERSHIP",
         description:
           "Designed to perform consistently across years of frequent travel.",
@@ -41,7 +41,7 @@ export default function SupportSection() {
         
         <div>
           
-          <h1 className="md:text-5xl text-5xl font-sohne-dreivierfett text-[#2f4635] leading-tight">
+          <h1 className="md:text-5xl text-5xl font-sohne-dreivierfett text-[#2f4635] leading-tight whitespace-pre-wrap">
             {data.heading}
           </h1>
 
@@ -56,9 +56,8 @@ export default function SupportSection() {
               <div key={index} className="flex flex-col gap-3 max-w-45">
                 
 
-                <div className="text-3xl text-[#2f4635]">
-                  {feature.icon}
-                </div>
+                <Image alt={feature.title} className="text-3xl text-black" src={feature.path} width={100} height={100}></Image>
+                  
 
 
                 <h3 className="text-orange-500 font-semibold text-sm uppercase">

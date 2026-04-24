@@ -22,6 +22,12 @@ const Button = ({
 export function ShopYourLuggage() {
   const [images, setImages] = useState([])
   const [categorytype, setCategorytype] = useState<"size" | "collection" | "trip">("size")
+  
+  const categories: Array<{ category: "size" | "collection" | "trip"; label: string }> = [
+    { category: "size", label: "Shop By Size" },
+    { category: "collection", label: "Shop By Collection" },
+    { category: "trip", label: "Shop By Trip" },
+  ]
 
   useEffect(() => {
     (async () => {
@@ -37,7 +43,7 @@ export function ShopYourLuggage() {
   return (
     <div className="flex flex-col items-center md:pt-8 md:gap-8 p-2">
       <div className="flex flex-col gap-4">
-        <h4 className="font-sohne-halbfett md:text-5xl text-3xl text-[#3D4637]">
+        <h4 className="font-sohne-halbfett md:text-5xl text-3xl text-[#3D4637] ">
           Shop Your Luggage
         </h4>
         <p className="text-black font-sans md:text-lg text-base leading-tight text-center font-normal">
@@ -46,15 +52,11 @@ export function ShopYourLuggage() {
         </p>
         <div className="md:mt-4 mt-2 flex flex-row md:items-center gap-4">
           {
-            [
-              { category: "size", label: "Shop By Size" },
-              { category: "collection", label: "Shop By Collection" },
-              { category: "trip", label: "Shop By Trip" },
-            ].map((c, index) => <Button key={`button_${index}`} isActive={categorytype === c.category} onClick={() => setCategorytype(c.category)} >{c.label}</Button>)
+            categories.map((c, index) => <Button key={`button_${index}`} isActive={categorytype === c.category} onClick={() => setCategorytype(c.category)} >{c.label}</Button>)
           }
         </div>
       </div>
-      <div className="md:mt-0 mt-4 grid md:grid-cols-4 gap-3">
+      <div className="md:mt-0 mt-4 grid md:grid-cols-4 gap-3 w-full">
         {images.map((img: any, index) => (
           <Image
             alt={img.image}

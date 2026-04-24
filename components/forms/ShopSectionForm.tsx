@@ -22,8 +22,7 @@ const schema = Yup.object({
     categoryType: Yup.string()
         .oneOf(["size", "collection", "trip"])
         .required("Category type is required"),
-    buttonTitle: Yup.string().required("Button title is required"),
-    caption: Yup.string().required("Caption is required"),
+    
 });
 
 export const ShopSecitonForm = ({
@@ -93,7 +92,7 @@ export const ShopSecitonForm = ({
                 }}
             />
 
-            {/* Category Type */}
+           
             <Select
                 value={formik.values.categoryType}
                 onValueChange={(value) =>
@@ -113,40 +112,40 @@ export const ShopSecitonForm = ({
 
             {formik.touched.categoryType && formik.errors.categoryType && (
                 <p className="text-red-500 text-sm">
-                    {formik.errors.categoryType}
+                    {formik.errors.categoryType as string}
                 </p>
             )}
 
-            {/* Button Title */}
+           
             <Input
                 placeholder="Button Title"
                 {...formik.getFieldProps("buttonTitle")}
             />
             {formik.touched.buttonTitle && formik.errors.buttonTitle && (
                 <p className="text-red-500 text-sm">
-                    {formik.errors.buttonTitle}
+                    {formik.errors.buttonTitle as string}
                 </p>
             )}
 
-            {/* Caption */}
+           
             <Input
                 placeholder="Caption"
                 {...formik.getFieldProps("caption")}
             />
             {formik.touched.caption && formik.errors.caption && (
                 <p className="text-red-500 text-sm">
-                    {formik.errors.caption}
+                    {formik.errors.caption as string}
                 </p>
             )}
 
-            {/* Image Error */}
+            
             {formik.touched.image && formik.errors.image && (
                 <p className="text-red-500 text-sm">
                     {formik.errors.image as string}
                 </p>
             )}
 
-            {/* Actions */}
+           
             <div className="flex justify-end gap-2">
                 <Button type="button" variant="ghost" onClick={onClose}>
                     Cancel

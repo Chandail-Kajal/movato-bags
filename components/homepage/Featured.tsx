@@ -35,7 +35,7 @@ const ImageCard = ({
           {imgTitle}
         </h3>
       </div>
-      <p className="font-sans text-sm text-white">
+      <p className="font-sans text-sm text-[#D9D9D6]">
         {caption}
       </p>
     </div>
@@ -44,37 +44,37 @@ const ImageCard = ({
 export function Featured() {
   const features: { img: string; imgTitle: string; caption: string }[] = [
     {
-      img: "/assets/images/feature-1.jpg",
+      img: "/assets/images/feature-1.svg",
       imgTitle: "Airport Handling",
       caption:
         "Built to handle constant handling across check-in counters and baggage belts.",
     },
     {
-      img: "/assets/images/feature-2.jpg",
+      img: "/assets/images/feature-2.svg",
       imgTitle: "All-Terrain Mobility",
       caption:
         "Designed to roll confidently across uneven pavements and gravel roads.",
     },
     {
-      img: "/assets/images/feature-4.png",
+      img: "/assets/images/feature-4.svg",
       imgTitle: "Repeated Lifting",
       caption:
         "Engineered for repeated lifting — even when fully packed.",
     },
     {
-      img: "/assets/images/feature-3.jpg",
+      img: "/assets/images/feature-3.svg",
       imgTitle: "Long Journeys",
       caption:
         "Designed for consistent performance across years of heavy-duty travel.",
     },
   ];
   return (
-    <div className="bg-[#25282A] rounded-3xl md:px-8 md:py-16 p-4 flex w-full md:flex-row flex-col justify-between items-center">
+    <div className="bg-[#25282A] rounded-3xl md:px-8 md:py-16 p-4 flex w-full md:flex-row flex-col justify-between items-center gap-0">
       <div className="flex flex-col gap-4">
-        <h4 className="text-3xl text-[#DB6B30] font-thin font-sohne-dreivierfett uppercase">
+        <h4 className="text-5xl text-[#DB6B30] font-semibold font-sohne-dreivierfett uppercase tracking-wider">
           Engineered for <br /> real-world travel.
         </h4>
-        <p className="text-base font-sans text-white">
+        <p className="text-2xl font-sans text-[#D9D9D6] tracking-wider">
           Every Movato component is stress-tested to perform <br /> in
           high-friction environments —from cobblestone <br /> streets to airport
           cargo holds.

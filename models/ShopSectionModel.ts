@@ -17,16 +17,6 @@ const shopSectionSchema = new mongoose.Schema(
       default: 0,
     },
 
-    buttonTitle: {
-      type: String,
-      trim: true,
-    },
-
-    caption: {
-      type: String,
-      trim: true,
-    },
-
     categoryType: {
       type: String,
       enum: ["size", "collection", "trip"],
